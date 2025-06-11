@@ -4,8 +4,8 @@ Handles all keyword-related MCP tool calls
 """
 
 from typing import Dict, Any
-from ..utils.http_client import make_api_request
-from ..utils.response_utils import limit_response_size
+from utils.http_client import make_api_request
+from utils.response_utils import limit_response_size
 
 
 class KeywordHandlers:

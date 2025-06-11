@@ -14,10 +14,10 @@ from mcp import types
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 
-from .tools.definitions import get_tool_definitions
-from .handlers.keyword_handlers import KeywordHandlers
-from .handlers.analysis_handlers import AnalysisHandlers
-from .handlers.ai_handlers import AIHandlers
+from tools.definitions import get_tool_definitions
+from handlers.keyword_handlers import KeywordHandlers
+from handlers.analysis_handlers import AnalysisHandlers
+from handlers.ai_handlers import AIHandlers
 
 
 class KwrdsApiMCPServer:

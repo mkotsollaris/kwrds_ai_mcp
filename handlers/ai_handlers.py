@@ -4,8 +4,8 @@ Handles AI-powered keyword research and content generation MCP tool calls
 """
 
 from typing import Dict, Any
-from ..utils.http_client import make_api_request
-from ..utils.response_utils import limit_response_size, truncate_string_fields
+from utils.http_client import make_api_request
+from utils.response_utils import limit_response_size, truncate_string_fields
 
 
 class AIHandlers:
