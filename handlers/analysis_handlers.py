@@ -57,7 +57,7 @@ class AnalysisHandlers:
             "search_language": args["search_language"],
             "X-API-KEY": api_key
         }
-        response = make_api_request(url, headers, params, method="GET")
+        response = make_api_request(url, headers, params=params, method="GET")
         return limit_response_size(response, max_items=10)
 
     def handle_paa_ai(self, args: Dict[str, Any], api_key: str) -> Dict[str, Any]:
@@ -93,7 +93,7 @@ class AnalysisHandlers:
                 "Accept": "application/json",
                 "X-API-KEY": api_key
             }
-            result = make_api_request("GET", url, headers)
+            result = make_api_request(url, headers, method="GET")
             return result
             
         except Exception as e:
