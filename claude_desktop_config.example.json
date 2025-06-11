@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "kwrds-ai": {
+      "command": "PYTHON3_PATH",
+      "args": ["REPLACE_WITH_FULL_PATH_TO_YOUR_KWARDS_MCP_DIRECTORY/run_server.py"],
+      "env": {
+        "KWRDS_API_KEY": "REPLACE_WITH_YOUR_KWRDS_AI_API_KEY"
+      }
+    }
+  }
+} 
