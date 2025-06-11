@@ -51,4 +51,4 @@ Ask Claude:
 
 ## Support
 
-Visit [kwrds.ai](https://www.kwrds.ai) for documentation.# kwrds_ai_mcp
+Visit [kwrds.ai](https://www.kwrds.ai) for documentation, support, and more.
