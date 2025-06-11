@@ -13,7 +13,7 @@ Model Context Protocol server for [kwrds.ai](https://www.kwrds.ai) keyword resea
    pip install -r requirements.txt
    ```
 
-3. **Add to Claude Desktop config** (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+3. **Add to an MCP Client (Claude/Cursor/Chatgpt/etc.) Desktop config** (`~/Library/Application Support/Claude/claude_desktop_config.json`):
    ```json
    {
      "mcpServers": {
@@ -30,11 +30,11 @@ Model Context Protocol server for [kwrds.ai](https://www.kwrds.ai) keyword resea
    
    **Replace `/path/to/this/project/` with your actual project path**
 
-4. **Restart Claude Desktop**
+4. **Restart MCP Client**
 
 ## Usage
 
-Ask Claude:
+Ask your MCP Client:
 - "Find keywords for 'digital marketing' in the US"
 - "What does example.com rank for?"
 - "Get People Also Ask questions for 'SEO tools'"
