@@ -35,10 +35,12 @@ Model Context Protocol server for [kwrds.ai](https://www.kwrds.ai) keyword resea
 ## Usage
 
 Ask your MCP Client:
-- "Find keywords for 'digital marketing' in the US"
-- "What does example.com rank for?"
-- "Get People Also Ask questions for 'SEO tools'"
-- "Generate an SEO outline for 'best laptops 2025'"
+- Find keywords for 'digital marketing' in the US
+- Get People Also Ask questions for 'SEO tools'
+- Generate an SEO outline for 'best laptops'
+- Get best keywords for 'best laptops 2025'
+- Get 7W1H for 'best AI tools'
+- What does example.com rank for?
 
 ## Tools Available
 
