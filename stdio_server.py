@@ -62,11 +62,14 @@ class KwrdsApiMCPServer:
         async def call_tool(name: str, arguments: Dict[str, Any]) -> List[types.TextContent]:
             """Handle tool calls"""
             try:
-                if not self.api_key:
-                    raise ValueError("API key not found. Please set KWRDS_API_KEY environment variable.")
+                # Use API key from arguments if provided, otherwise fall back to environment
+                api_key = arguments.get('api_key', self.api_key)
+                
+                if not api_key:
+                    raise ValueError("API key not found. Please provide api_key in arguments or set KWRDS_API_KEY environment variable.")
                 
                 # Route to appropriate handler
-                result = await self._route_tool_call(name, arguments)
+                result = await self._route_tool_call(name, arguments, api_key)
                 
                 # Return result as text content
                 return [types.TextContent(
@@ -81,40 +84,40 @@ class KwrdsApiMCPServer:
                     text=json.dumps(error_result, indent=2)
                 )]
 
-    async def _route_tool_call(self, tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
+    async def _route_tool_call(self, tool_name: str, arguments: Dict[str, Any], api_key: str) -> Dict[str, Any]:
         """Route tool calls to appropriate handlers"""
         
         # Keyword research tools
         if tool_name == "keywords":
-            return self.keyword_handlers.handle_keywords(arguments, self.api_key)
+            return self.keyword_handlers.handle_keywords(arguments, api_key)
         elif tool_name == "keywords_with_volumes":
-            return self.keyword_handlers.handle_keywords_with_volumes(arguments, self.api_key)
+            return self.keyword_handlers.handle_keywords_with_volumes(arguments, api_key)
         elif tool_name == "search_volume":
-            return self.keyword_handlers.handle_search_volume(arguments, self.api_key)
+            return self.keyword_handlers.handle_search_volume(arguments, api_key)
         elif tool_name == "related_keywords":
-            return self.keyword_handlers.handle_related_keywords(arguments, self.api_key)
+            return self.keyword_handlers.handle_related_keywords(arguments, api_key)
         elif tool_name == "lsi":
-            return self.keyword_handlers.handle_lsi(arguments, self.api_key)
+            return self.keyword_handlers.handle_lsi(arguments, api_key)
             
         # Analysis tools
         elif tool_name == "serp":
-            return self.analysis_handlers.handle_serp(arguments, self.api_key)
+            return self.analysis_handlers.handle_serp(arguments, api_key)
         elif tool_name == "serp_detailed":
-            return self.analysis_handlers.handle_serp_detailed(arguments, self.api_key)
+            return self.analysis_handlers.handle_serp_detailed(arguments, api_key)
         elif tool_name == "url_rankings":
-            return self.analysis_handlers.handle_url_rankings(arguments, self.api_key)
+            return self.analysis_handlers.handle_url_rankings(arguments, api_key)
         elif tool_name == "paa":
-            return self.analysis_handlers.handle_paa(arguments, self.api_key)
+            return self.analysis_handlers.handle_paa(arguments, api_key)
         elif tool_name == "paa_ai":
-            return self.analysis_handlers.handle_paa_ai(arguments, self.api_key)
+            return self.analysis_handlers.handle_paa_ai(arguments, api_key)
         elif tool_name == "usage_count":
-            return self.analysis_handlers.handle_usage_count(arguments, self.api_key)
+            return self.analysis_handlers.handle_usage_count(arguments, api_key)
             
         # AI tools
         elif tool_name == "ai":
-            return self.ai_handlers.handle_ai(arguments, self.api_key)
+            return self.ai_handlers.handle_ai(arguments, api_key)
         elif tool_name == "ai_content":
-            return self.ai_handlers.handle_ai_content(arguments, self.api_key)
+            return self.ai_handlers.handle_ai_content(arguments, api_key)
             
         else:
             raise ValueError(f"Unknown tool: {tool_name}")
