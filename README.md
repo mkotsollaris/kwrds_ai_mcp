@@ -1,6 +1,8 @@
 # kwrds.ai MCP Server
 
-Model Context Protocol server for [kwrds.ai](https://www.kwrds.ai) keyword research and SEO tools.
+<img src="claude_mcp_kwrdds_ai_client.png" alt="Claude MCP kwrds.ai Client" width="70%" />
+
+Model Context Protocol server for [kwrds.ai](https://www.kwrds.ai) keyword research and SEO tools. You can read more about the MCP protocol [in this blog post](https://www.kwrds.ai/blog/kwrds-ai-mcp).
 
 ## Setup
 
